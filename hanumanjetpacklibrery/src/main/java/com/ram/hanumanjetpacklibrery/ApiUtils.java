@@ -11,9 +11,9 @@ public class ApiUtils {
 
     /**************Plain String format *****************************/
 
-    public static ApiServicesString getAPIService2(String URL) {
+    public static ApiServicesString.url getAPIService2(String URL) {
 
-        return RetrofitClient.getClient2(URL).create(ApiServicesString.class);
+        return RetrofitClient.getClient2(URL).create(ApiServicesString.url.class);
     }
 
 }

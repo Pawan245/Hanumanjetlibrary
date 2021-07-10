@@ -7,6 +7,8 @@ import retrofit2.http.POST;
 
 public interface ApiServicesString {
 
-    void url();
+    public   interface url{
+
+    }
 
 }

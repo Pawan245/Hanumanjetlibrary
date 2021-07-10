@@ -14,17 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApicallAny {
-     public static   String result="na";
-    public static ProgressDialog progressDialog;
+
     public static  void ApicallVolleywithoutParams(Context c, String url,final VolleyCallback callback) {
 
-
-        progressDialog = new ProgressDialog(c);
-        progressDialog.setMessage("Please Wait...");
-        progressDialog.setIndeterminate(false);
-        progressDialog.setCancelable(false);
-        progressDialog.getWindow().setGravity(Gravity.CENTER);
-        progressDialog.show();
 
 
 
@@ -33,7 +25,7 @@ public class ApicallAny {
             @Override
             public void onResponse(String response) {
                 callback.onSuccess(response);
-                progressDialog.dismiss();
+
             }
 
         }, new Response.ErrorListener() {
@@ -42,7 +34,7 @@ public class ApicallAny {
 
 
                 callback.onError(error.toString());
-                progressDialog.dismiss();
+
                 // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) ;
@@ -59,12 +51,6 @@ public class ApicallAny {
     public static  void ApicallVolleywithParams(Context c, String url,  Map<String, String> paramst,final VolleyCallback callback) {
 
 
-        progressDialog = new ProgressDialog(c);
-        progressDialog.setMessage("Please Wait...");
-        progressDialog.setIndeterminate(false);
-        progressDialog.setCancelable(false);
-        progressDialog.getWindow().setGravity(Gravity.CENTER);
-        progressDialog.show();
 
 
 
@@ -73,7 +59,7 @@ public class ApicallAny {
             @Override
             public void onResponse(String response) {
                 callback.onSuccess(response);
-                progressDialog.dismiss();
+
 
 
             }
@@ -83,7 +69,7 @@ public class ApicallAny {
             public void onErrorResponse(VolleyError error) {
 
                 callback.onError(error.toString());
-                progressDialog.dismiss();
+
                 // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) {

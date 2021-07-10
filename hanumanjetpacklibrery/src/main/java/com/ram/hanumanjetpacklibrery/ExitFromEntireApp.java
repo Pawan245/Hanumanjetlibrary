@@ -18,7 +18,7 @@ public class ExitFromEntireApp extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
-                            finishAffinity();
+                         finishAffinity();
                         } else if (Build.VERSION.SDK_INT >= 21) {
                             finishAndRemoveTask();
                         }

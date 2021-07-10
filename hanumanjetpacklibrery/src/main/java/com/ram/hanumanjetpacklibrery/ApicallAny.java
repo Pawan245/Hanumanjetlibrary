@@ -1,6 +1,8 @@
 package com.ram.hanumanjetpacklibrery;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.view.Gravity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,14 +18,25 @@ import java.util.Map;
 
 public class ApicallAny {
    public  String result="na";
-
+    ProgressDialog progressDialog;
     public  String ApicallVolley(Context c, String url,  Map<String, String> paramst) {
+
+
+        progressDialog = new ProgressDialog(c);
+        progressDialog.setMessage("Please Wait...");
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setGravity(Gravity.CENTER);
+        progressDialog.show();
+
+
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 result=response.toString();
+                progressDialog.dismiss();
             }
 
         }, new Response.ErrorListener() {
@@ -32,6 +45,7 @@ public class ApicallAny {
 
 
                 result=error.toString();
+                progressDialog.dismiss();
                 // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) {

@@ -1,9 +1,7 @@
 package com.ram.hanumanjetpacklibrery;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.Gravity;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -11,7 +9,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +16,7 @@ import java.util.Map;
 public class ApicallAny {
      public static   String result="na";
     public static ProgressDialog progressDialog;
-    public static  String ApicallVolleywithoutParams(Context c, String url) {
+    public static  void ApicallVolleywithoutParams(Context c, String url,final VolleyCallback callback) {
 
 
         progressDialog = new ProgressDialog(c);
@@ -35,7 +32,7 @@ public class ApicallAny {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                result=response.toString();
+                callback.onSuccess(response);
                 progressDialog.dismiss();
             }
 
@@ -44,7 +41,7 @@ public class ApicallAny {
             public void onErrorResponse(VolleyError error) {
 
 
-                result=error.toString();
+                callback.onError(error.toString());
                 progressDialog.dismiss();
                 // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
@@ -53,13 +50,13 @@ public class ApicallAny {
         RequestQueue mRequestQueue = Volley.newRequestQueue(c);
         mRequestQueue.add(stringRequest);
 
-     return result;
+
     }
 
 
 
 
-    public static  String ApicallVolleywithParams(Context c, String url,  Map<String, String> paramst) {
+    public static  void ApicallVolleywithParams(Context c, String url,  Map<String, String> paramst,final VolleyCallback callback) {
 
 
         progressDialog = new ProgressDialog(c);
@@ -75,8 +72,7 @@ public class ApicallAny {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                result=response.toString();
-
+                callback.onSuccess(response);
                 progressDialog.dismiss();
 
 
@@ -86,8 +82,7 @@ public class ApicallAny {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-
-                result=error.toString();
+                callback.onError(error.toString());
                 progressDialog.dismiss();
                 // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
@@ -103,6 +98,18 @@ public class ApicallAny {
         RequestQueue mRequestQueue = Volley.newRequestQueue(c);
         mRequestQueue.add(stringRequest);
 
-        return result;
+
     }
+
+
+
+
+
+
+
+    public interface VolleyCallback{
+        void onSuccess(String result);
+        void onError(String result);
+    }
+
 }

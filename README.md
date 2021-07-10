@@ -58,9 +58,7 @@
  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        GifView.settext("raw/happy");                        // Here happy.gif  file which is placed under raw Android Resource Directory.
+        GifView.settext("raw/happy"); // Here happy.gif  file which is placed under raw Android Resource Directory.
         setContentView(R.layout.splash_screen);
 </pre>
 

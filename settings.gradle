@@ -1,0 +1,3 @@
+rootProject.name = "androidhanumanjetlibrery"
+include ':app'
+include ':hanumanjetpacklibrery'

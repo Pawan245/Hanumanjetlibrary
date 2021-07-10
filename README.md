@@ -151,13 +151,13 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	
 	#withParams
  
-        Map<String, String> params = new HashMap<>();
+  Map<String, String> params = new HashMap<>();
 
-        params.put("param1","val");
-        params.put("param2","valx");
+  params.put("param1","val");
+  params.put("param2","valx");
         
-    String url="http://rt.com/api/my.php";
-    ApicallAny.ApicallVolleywithParams(MainActivity.this, url,params, new ApicallAny.VolleyCallback() {
+  String url="http://rt.com/api/my.php";
+  ApicallAny.ApicallVolleywithParams(MainActivity.this, url,params, new ApicallAny.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 

@@ -1,8 +1,8 @@
 package com.ram.hanumanjetpacklibrery;
-
 import android.content.Context;
 import android.view.Gravity;
 import android.widget.Toast;
+
 
 public class ToasterMessage {
 

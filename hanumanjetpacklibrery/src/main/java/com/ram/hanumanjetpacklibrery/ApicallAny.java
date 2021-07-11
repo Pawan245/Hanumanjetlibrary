@@ -1,7 +1,5 @@
 package com.ram.hanumanjetpacklibrery;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.view.Gravity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,7 +7,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,10 +29,8 @@ public class ApicallAny {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-
                 callback.onError(error.toString());
 
-                // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) ;
 
@@ -70,7 +65,6 @@ public class ApicallAny {
 
                 callback.onError(error.toString());
 
-                // Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override

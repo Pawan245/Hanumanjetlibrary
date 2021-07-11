@@ -1,47 +1,17 @@
 package com.ram.hanumanjetpacklibrery;
-
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-import android.widget.Toast;
-
-import java.io.IOException;
-import java.util.Map;
-
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
+
 
 public class RetroApiAnyCall {
 
 
-    public static  void ApicallRetro(Call<String> data,final RetroCallbackapi callback){
+
+    public static  void ApiStringCallRetro(Call<String> data,final RetroCallbackApi callback){
 
 
         /********************************************************************************************/
 
-
-      //  WebAPIService:
-
-      //  @GET("/api/values")
-      //  Call<String> getValues();
-      //  Activity file:
-
-      //  Retrofit retrofit = new Retrofit.Builder()
-         //       .baseUrl(API_URL_BASE)
-          //      .build();
-
-      //  WebAPIService service = retrofit.create(WebAPIService.class);
-
-      //  Call<String> stringCall = service.getValues();
-
-
-
-
-
-
-        /*********************************************************************************************/
 
         data.enqueue(new Callback<String>() {
 
@@ -62,7 +32,7 @@ public class RetroApiAnyCall {
                     case 200:
                         if (response.isSuccessful()) {
 
-                            callback.onSuccess(response.toString());
+                            callback.onSuccess(response.body());
 
                         }
                         break;
@@ -95,24 +65,85 @@ public class RetroApiAnyCall {
 
 
 
-
-    public interface RetroCallbackapi{
-        void onSuccess(String result);
-        void onError(String result);
+    public static  void ApiModelCallRetro(Call<Object> data,final RetroCallbackApiModel callback){
 
 
+        /********************************************************************************************/
 
+
+        data.enqueue(new Callback<Object>() {
+
+            @Override
+            public void onResponse(Call<Object> call, retrofit2.Response<Object> response) {
+
+                if (response.isSuccessful()) {
+                    /* */
+                    switch (response.code()) {
+                        case 404:
+                            callback.onError("404");
+                            break;
+
+                        case 500:
+                            callback.onError("500");
+                            break;
+
+                        case 200:
+                            if (response.isSuccessful()) {
+
+                                callback.onSuccess(response.body());
+
+                            }
+                            break;
+
+                        default:
+                            callback.onError("error");
+                            break;
+
+                    }
+
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+                if (call.isCanceled()) {
+                    callback.onError("abort");
+                } else {
+                    callback.onError("abortcancel");
+                }
+
+            }
+        });
 
     }
 
 
+    public interface RetroCallbackApi {
+        void onSuccess(String result);
 
+        void onError(String result);
+    }
 
-
+    public interface RetroCallbackApiModel {
+        void onSuccess(Object result);
+        void onError(String result);
+    }
 
 
 
         }
+
+
+
+
+
+
+
+
+
 
 
 

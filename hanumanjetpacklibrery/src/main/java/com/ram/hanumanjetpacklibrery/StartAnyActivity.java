@@ -1,6 +1,5 @@
 package com.ram.hanumanjetpacklibrery;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 

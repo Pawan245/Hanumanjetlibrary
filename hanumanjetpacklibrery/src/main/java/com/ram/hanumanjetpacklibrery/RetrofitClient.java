@@ -12,7 +12,7 @@ public class RetrofitClient {
 
     private static Retrofit retrofit = null;
     private static Retrofit retrofit2 = null;
-    public static Retrofit getClient(String baseUrl) {
+    public static Retrofit getModelClient(String baseUrl) {
 
 
 
@@ -44,7 +44,7 @@ public class RetrofitClient {
 
 
 
-    public static Retrofit getClient2(String baseUrl) {
+    public static Retrofit getStringClient(String baseUrl) {
 
         try {
             if (retrofit2 == null) {

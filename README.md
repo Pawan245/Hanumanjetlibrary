@@ -222,31 +222,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	
 </pre>
 	
-<pre>
-	
-	#withParams
- 
-  Map<String, String> params = new HashMap<>();
 
-  params.put("param1","val");
-  params.put("param2","valx");
-        
-  String url="http://rt.com/api/my.php";
-  ApicallAny.ApicallVolleywithParams(MainActivity.this, url,params, new ApicallAny.VolleyCallback() {
-            @Override
-            public void onSuccess(String result) {
-
-              //  do stuff here
-
-            }
-
-            @Override
-            public void onError(String result) {
-                //  do stuff here
-            }
-        });
-
-</pre>
   </div></div>
  
  

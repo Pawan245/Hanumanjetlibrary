@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="typeface">
+        <enum name="roboto_light" value="1" />
+        <enum name="roboto_regular" value="0" />
+        <enum name="roboto_thin" value="2" />
+    </attr>
+
+
+</resources>

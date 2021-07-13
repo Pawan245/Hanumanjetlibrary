@@ -13,8 +13,8 @@ import android.widget.TextView;
 import java.util.Map;
 
 public class HanumanSpinner {
-    private static String g[];
-    private static String h[];
+   // private static String g[];
+   // private static String h[];
     private static View ct;
 
     private static PopupWindow dt;
@@ -22,6 +22,11 @@ public class HanumanSpinner {
     public static void ShowSpinner(View view, int xoff, int yoff, Context context, Map<String, String> paramst,String spinnerheadertitle,final SpinnerItemOnClick callback) {
         ct = LayoutInflater.from(context).inflate(R.layout.m_dropdown_popup, null);
         int m=0;
+        String [] g = new String[paramst.size()];
+        String [] h = new String[paramst.size()];
+
+
+
         for (Map.Entry<String, String> pair : paramst.entrySet()) {
 
             g[m] = pair.getKey();

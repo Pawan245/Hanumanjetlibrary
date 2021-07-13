@@ -30,11 +30,7 @@ public class HanumanSpinner {
             m++;
         }
 
-
-
         HanumanSpinnerAdapter c = new HanumanSpinnerAdapter(context, R.layout.m_search_exp_row, g, h, yoff, true);
-
-
         ListView contextp = ct.findViewById(R.id.lv_dd_popup);
         ((TextView) ct.findViewById(R.id.tv_dd_popup_header)).setClickable(true);
         ((TextView) ct.findViewById(R.id.tv_dd_popup_header)).setText(spinnerheadertitle);

@@ -214,7 +214,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	public  interface  api{
 
         @FormUrlEncoded
-        @POST("pragyatschool/smartschool/SchoolApi/TeacherApi/student_details.php")
+        @POST("Api/details.php")
         Call<String> placeorder( @Field("class_id") String id, @Field("sec_id") String secid );
 
     }

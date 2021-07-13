@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <com.ram.hanumanjetpacklibrery.HanumanCustomTextView
+        android:id="@+id/tv_dd_popup_header"
+        style="@style/wrap_wrap.normal.large"
+        android:layout_width="fill_parent"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginTop="10.0dip"
+        android:background="@drawable/bg_grey_jean"
+        android:padding="5.0dip"
+        android:textColor="#ffafafaf"
+        android:textSize="14.0sp"
+        app:typeface="roboto_regular" />
+
+    <ListView
+        android:id="@+id/lv_dd_popup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

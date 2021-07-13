@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="seperator_color">#33666666</color>
+    <color name="white">#ffffffff</color>
+
+    <color name="txt_color_label">#ff666666</color>
+    <color name="grey_666">#ff666666</color>
+</resources>

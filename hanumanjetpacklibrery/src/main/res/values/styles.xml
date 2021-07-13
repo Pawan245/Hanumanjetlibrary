@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="wrap_wrap.normal.large" parent="@style/wrap_wrap.normal">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="wrap_wrap.normal" parent="@style/wrap_wrap">
+        <item name="android:textColor">@color/txt_color_label</item>
+        <item name="android:drawablePadding">3.0dip</item>
+    </style>
+
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrap_wrap.normal.medium.dd_row" parent="@style/wrap_wrap.normal.medium">
+        <item name="android:textColor">@color/grey_666</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:minHeight">40.0dip</item>
+    </style>
+
+
+    <style name="wrap_wrap.normal.medium" parent="@style/wrap_wrap.normal">
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+
+
+
+
+
+</resources>

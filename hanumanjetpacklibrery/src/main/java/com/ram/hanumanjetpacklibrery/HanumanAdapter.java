@@ -14,11 +14,14 @@ import java.util.List;
 
 public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.MyViewholder> {
 
+    HanumanAdapterCallback callback;
+
+
     public  interface HanumanAdapterCallback {
-        void MyViewholder();
+        void MyViewholder(View itemView);
        <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position);
     }
-    HanumanAdapterCallback callback;
+
 
 
 
@@ -106,12 +109,12 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
-            MyHolder(cv);
+            MyHolder(cv,itemView);
 
         }
 
-        public void MyHolder(HanumanAdapterCallback  callback){
-         callback.MyViewholder();
+        public void MyHolder(HanumanAdapterCallback callback, View itemView){
+         callback.MyViewholder(itemView);
         }
 
 

@@ -4,22 +4,71 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.MyViewholder> {
+public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.MyViewholder>   implements Filterable {
 
     HanumanAdapterCallback callback;
+
+
+     List<T> FilterList;
+    CustomFilter filter;
+
+
+    @Override
+    public Filter getFilter() {
+        if(filter==null)
+        {
+            filter= new CustomFilter();
+        }
+        return  filter;
+
+
+    }
+
+    class CustomFilter extends Filter
+    {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence  constraint) {
+
+
+
+            FilterResults results = new FilterResults();
+
+
+            return results;
+
+
+
+
+
+        }
+
+
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            callback.filterresult(constraint);
+        }
+    };
+
 
 
     public  interface HanumanAdapterCallback {
         void MyViewholder(View itemView);
        <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position);
+
+       void  filterresult(CharSequence constraint);
     }
 
 
@@ -61,6 +110,7 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
     public  HanumanAdapter(Context context, List<T> list1) {
         this.context = context;
         this.list = list1;
+        this.FilterList = list1;
     }
 
     @NonNull

@@ -1,4 +1,5 @@
 package com.ram.Hanumanjetlibrary;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,12 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import com.ram.hanumanjetpacklibrery.HanumanAdapter;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     HanumanAdapter fg;
     RecyclerView rvc;
-TextView tt;
+    TextView tt;
+    List<Hero> ty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +41,10 @@ TextView tt;
 
         int layoutID = R.layout.activity_main;
 
-       Log.i("SS",""+layoutID+"");
+        Log.i("SS", "" + layoutID + "");
 
 
-       rvc=findViewById(R.id.category_recycler);
+        rvc = findViewById(R.id.category_recycler);
 
 
 
@@ -59,16 +64,16 @@ TextView tt;
         RetroApiAnyCall.ApiModelCallRetro(stringCall, new RetroApiAnyCall.RetroCallbackApiModel() {
             @Override
             public void onError(String result) {
-                Log.i("PPZ",""+result+"");
+                Log.i("PPZ", "" + result + "");
             }
 
             @Override
             public <E> void onSuccess(List<E> body) {
                 int layoutID = R.layout.items;
                 HanumanAdapter.setlayoutid(layoutID);
-                List<Hero> ty= (List<Hero>) body;
+                ty = (List<Hero>) body;
 
-                fg = new  HanumanAdapter(MainActivity.this, ty);
+                fg = new HanumanAdapter(MainActivity.this, ty);
 
                 // preferenceManager.putstring(Constant.PRODUCT_COUNT, String.valueOf(cartAdapter.getItemCount()));
                 rvc.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -77,25 +82,62 @@ TextView tt;
                     @Override
                     public void MyViewholder(View itemView) {
                         tt = itemView.findViewById(R.id.txt);
-
-                        tt.setText(":hhfgghfghfgfg");
                     }
 
                     @Override
                     public <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position) {
-                        TextView hh= holder.itemView.findViewById(R.id.txt);
-                        hh.setText("khkhkjkjlkj");
+                        List<Hero> df = (List<Hero>) list;
+                        TextView hh = holder.itemView.findViewById(R.id.txt);
+                        hh.setText("" + df.get(position).getName() + "");
+                        hh.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EditText ty = findViewById(R.id.txtm);
+
+fg.getFilter().filter(ty.getText().toString());
+                            }
+
+                        });
+                    }
+
+                    @Override
+                    public void filterresult(CharSequence constraint) {
+                        if (constraint != null && constraint.length() > 0) {
+                            constraint = constraint.toString().toUpperCase();
+                            ArrayList<Hero> filter = new ArrayList<Hero>();
+                            for (int i = 0; i < ty.size(); i++) {
+                                if (ty.get(i).getName().contains(constraint)) {
+                                    Hero p = new Hero(ty.get(i).getName(), ty.get(i).getRealname(), ty.get(i).getTeam(), ty.get(i).getFirstappearance(), ty.get(i).getCreatedby(), ty.get(i).getPublisher(), ty.get(i).getImageurl(), ty.get(i).getBio());
+                                    filter.add(p);
+
+                                }
+                            }
+                            fg = new HanumanAdapter(MainActivity.this, filter);
+                            fg.notifyDataSetChanged();
+
+
+
+                        } else {
+
+                            fg = new HanumanAdapter(MainActivity.this, ty);
+                            fg.notifyDataSetChanged();
+                            //  results.count = FilterList.size();
+                            //  res
+                        }
                     }
                 });
 
                 rvc.setAdapter(fg);
                 rvc.smoothScrollToPosition(0);
                 //cartAdapter.setOnItemClickListener(Cart.this);
-                fg .notifyDataSetChanged();
+                fg.notifyDataSetChanged();
 
-                Log.i("PP",""+ty.get(4).getName()+"");
+                // Log.i("PP", "" + ty.get(4).getName() + "");
+
+
             }
-        });
+
+
      /*   stringCall.enqueue(new Callback<List<Hero>>() {
 
 
@@ -148,10 +190,10 @@ TextView tt;
             }
         });*/
 
+        });
+
+
     }
-
-
-
 
 
        /* RetroApiAnyCall.ApiModelCallRetro(stringCall, new RetroApiAnyCall.RetroCallbackApiModel() {
@@ -167,16 +209,13 @@ TextView tt;
         });*/
 
 
+    public interface api {
 
 
-        public  interface  api{
-
-
-            @GET("marvel")
-            Call<List<Hero>> getHeroes();
-
-        }
-
-
+        @GET("marvel")
+        Call<List<Hero>> getHeroes();
 
     }
+
+
+}

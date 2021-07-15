@@ -75,6 +75,9 @@ public class RetroApiAnyCall {
 
         data.enqueue(new Callback<E>() {
 
+
+
+
             @Override
             public void onResponse(Call<E> call, retrofit2.Response<E> response) {
 
@@ -114,7 +117,7 @@ public class RetroApiAnyCall {
                 if (call.isCanceled()) {
                     callback.onError("abort");
                 } else {
-                    callback.onError("abortcancel");
+                    callback.onError(call.toString());
                 }
 
             }

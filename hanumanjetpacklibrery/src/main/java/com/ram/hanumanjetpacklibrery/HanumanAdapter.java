@@ -62,7 +62,8 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            callback.filterresult(constraint);
+            list=  callback.filterresult(constraint);
+            notifyDataSetChanged();
         }
     };
 
@@ -72,7 +73,9 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
         void MyViewholder(View itemView);
        <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position);
 
-       void  filterresult(CharSequence constraint);
+      <T> List<T>  filterresult(CharSequence constraint);
+
+
     }
 
 

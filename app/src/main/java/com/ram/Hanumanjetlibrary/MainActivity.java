@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,16 +16,10 @@ import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -111,7 +104,7 @@ fg.getFilter().filter(ty.getText().toString());
                     }
 
                     @Override
-                    public void filterresult(CharSequence constraint) {
+                    public List filterresult(CharSequence constraint) {
 
 
 
@@ -132,8 +125,8 @@ ty.clear();
                            Toast.makeText(getApplicationContext(),""+filter.size()+"",Toast.LENGTH_LONG).show();
 
                             ty=filter;
-
-                           fg.notifyDataSetChanged();
+return ty;
+                          // fg.notifyDataSetChanged();
 
 
 
@@ -141,8 +134,8 @@ ty.clear();
 
 ty.clear();
 ty=yy;
-                           fg.notifyDataSetChanged();
-
+                          // fg.notifyDataSetChanged();
+return ty;
                         }
                     }
                 });

@@ -19,6 +19,10 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
     HanumanAdapterCallback callback;
 
+    public void setOnHanumanAdapterCallback( HanumanAdapterCallback callbackt){
+
+        this.callback = callbackt;
+    }
 
      List<T> FilterList;
     CustomFilter filter;
@@ -72,10 +76,7 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
     }
 
 
-    public void setOnHanumanAdapterCallback( HanumanAdapterCallback callbackt){
 
-        this.callback = callbackt;
-    }
 
 
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ram.hanumanjetpacklibrery.HanumanAdapter;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     HanumanAdapter fg;
     RecyclerView rvc;
     TextView tt;
-    List<Hero> ty;
+    List<Hero> ty,yy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("SS", "" + layoutID + "");
 
-
+ty=new ArrayList<>();
+        yy=new ArrayList<>();
         rvc = findViewById(R.id.category_recycler);
 
 
@@ -72,11 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 int layoutID = R.layout.items;
                 HanumanAdapter.setlayoutid(layoutID);
                 ty = (List<Hero>) body;
-
+yy= (List<Hero>) body;
                 fg = new HanumanAdapter(MainActivity.this, ty);
 
                 // preferenceManager.putstring(Constant.PRODUCT_COUNT, String.valueOf(cartAdapter.getItemCount()));
                 rvc.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                rvc.setAdapter(fg);
+                rvc.smoothScrollToPosition(0);
+                //cartAdapter.setOnItemClickListener(Cart.this);
+                fg.notifyDataSetChanged();
+
 
                 fg.setOnHanumanAdapterCallback(new HanumanAdapter.HanumanAdapterCallback() {
                     @Override
@@ -92,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
                         hh.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+
+                              //  Toast.makeText(getApplicationContext(),""+hh.getText().toString()+"",Toast.LENGTH_LONG).show();
+
                                 EditText ty = findViewById(R.id.txtm);
 
 fg.getFilter().filter(ty.getText().toString());
@@ -102,35 +112,41 @@ fg.getFilter().filter(ty.getText().toString());
 
                     @Override
                     public void filterresult(CharSequence constraint) {
-                        if (constraint != null && constraint.length() > 0) {
+
+
+
+                       if (constraint.length() > 0) {
                             constraint = constraint.toString().toUpperCase();
                             ArrayList<Hero> filter = new ArrayList<Hero>();
                             for (int i = 0; i < ty.size(); i++) {
-                                if (ty.get(i).getName().contains(constraint)) {
+                                if (ty.get(i).getName().toUpperCase().equals(constraint)) {
+                                    Toast.makeText(getApplicationContext(),""+constraint+"",Toast.LENGTH_LONG).show();
+
                                     Hero p = new Hero(ty.get(i).getName(), ty.get(i).getRealname(), ty.get(i).getTeam(), ty.get(i).getFirstappearance(), ty.get(i).getCreatedby(), ty.get(i).getPublisher(), ty.get(i).getImageurl(), ty.get(i).getBio());
                                     filter.add(p);
 
                                 }
                             }
-                            fg = new HanumanAdapter(MainActivity.this, filter);
-                            fg.notifyDataSetChanged();
+ty.clear();
+
+                           Toast.makeText(getApplicationContext(),""+filter.size()+"",Toast.LENGTH_LONG).show();
+
+                            ty=filter;
+
+                           fg.notifyDataSetChanged();
 
 
 
                         } else {
 
-                            fg = new HanumanAdapter(MainActivity.this, ty);
-                            fg.notifyDataSetChanged();
-                            //  results.count = FilterList.size();
-                            //  res
+ty.clear();
+ty=yy;
+                           fg.notifyDataSetChanged();
+
                         }
                     }
                 });
 
-                rvc.setAdapter(fg);
-                rvc.smoothScrollToPosition(0);
-                //cartAdapter.setOnItemClickListener(Cart.this);
-                fg.notifyDataSetChanged();
 
                 // Log.i("PP", "" + ty.get(4).getName() + "");
 

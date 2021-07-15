@@ -49,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
 
                 List<Hero> ty= (List<Hero>) body;
-                Log.i("PP",""+ty.get(0).getName()+"");
+
+
+
+                Log.i("PP",""+ty.get(4).getName()+"");
             }
         });
      /*   stringCall.enqueue(new Callback<List<Hero>>() {

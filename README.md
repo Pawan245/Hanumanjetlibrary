@@ -53,10 +53,26 @@
   </div></div>
 <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>1.GifView </h2>
 <p> Place this GifView  anywhere in your Xml Layout, And Add resource raw folder in your project And put a gif Image</p>
-<div class="highlight highlight-source-java position-relative"><pre>
+<div class="highlight highlight-source-java position-relative">
+	
+	
+![GifView](https://raw.githubusercontent.com/Pawan245/toastlib/master/app/src/main/res/drawable/Gif.jpg?raw=true)	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<pre>
 #SplashyActivity.java
-
 #Here happy.gif  file which is placed under raw Android Resource Directory.
 
  @Override
@@ -181,12 +197,12 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
  
   <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>5.RetroApiAnyCall (Retrofit 2) </h2>
 <p> Place this ApicallAny  anywhere in your App Make Http Network Call</p>
-<div class="highlight highlight-source-java position-relative">
-
-
-	<pre>#MainActivity.java
+<div class="highlight highlight-source-java position-relative"><pre>
 	
-	# Add  implementation 'com.squareup.retrofit2:retrofit:2.6.1' in build.gradle file
+	#MainActivity.java
+	
+	
+	Add  implementation 'com.squareup.retrofit2:retrofit:2.6.1' in build.gradle file
 	for declaration    Call<String> stringCall .
 	
         api   service =  RetrofitClient.getStringClient("http:/xyz.com/").create(api.class);
@@ -214,7 +230,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	public  interface  api{
 
         @FormUrlEncoded
-        @POST("pragyatschool/smartschool/SchoolApi/TeacherApi/student_details.php")
+        @POST("Api/details.php")
         Call<String> placeorder( @Field("class_id") String id, @Field("sec_id") String secid );
 
     }
@@ -227,6 +243,58 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
  
  
  
+ 
+  <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>6.HanumanSpinner </h2>
+<p> Place this HanumanSpinner  anywhere in your App Show Spinner</p>
+<div class="highlight highlight-source-java position-relative">
+
+![HanumanSpinner](https://raw.githubusercontent.com/Pawan245/toastlib/master/app/src/main/res/drawable/spin.jpg?raw=true)
+	
+
+
+
+<pre>
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loginactivity);
+        com.ram.hanumanjetpacklibrery.HanumanCustomEditText gh = findViewById(R.id.et_search_jobs);
+        Map<String, String> paramst = new HashMap<>();
+
+        paramst.put("grapes", "12");
+        paramst.put("lime", "129");
+        paramst.put("lemon", "123");
+        paramst.put("cherry", "126");
+        paramst.put("blueberry", "128");
+        paramst.put("banana", "123");
+
+
+        gh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+  HanumanSpinner.ShowSpinner(gh, 0, 0, loginactivity.this, paramst,
+  "Category", new HanumanSpinner.SpinnerItemOnClick() {
+  
+  
+  @Override
+  public void onItemClick(String key, String value) {
+    ToasterMessage.ShowToast(loginactivity.this, "K" + key + " Val " + value + "");
+    gh.setText("Key" + value + " ");
+    }
+    @Override
+    public void SetHeader() {
+     ToasterMessage.ShowToast(loginactivity.this, "Category");
+                    }
+                });
+            }
+        });
+	
+</pre>
+	
+
+  </div></div>
  
  
  

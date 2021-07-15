@@ -67,19 +67,19 @@ public class RetroApiAnyCall {
 
 
 
-    public static <E> void ApiModelCallRetro(Call<E> data,final RetroCallbackApiModel callback){
+    public static <E> void ApiModelCallRetro(Call<List<E>> data,final RetroCallbackApiModel callback){
 
 
         /********************************************************************************************/
 
 
-        data.enqueue(new Callback<E>() {
+        data.enqueue(new Callback<List<E>>() {
 
 
 
 
             @Override
-            public void onResponse(Call<E> call, retrofit2.Response<E> response) {
+            public void onResponse(Call<List<E>> call, retrofit2.Response<List<E>> response) {
 
                 if (response.isSuccessful()) {
                     /* */
@@ -112,7 +112,7 @@ public class RetroApiAnyCall {
             }
 
             @Override
-            public void onFailure(Call<E> call, Throwable t) {
+            public void onFailure(Call<List<E>> call, Throwable t) {
 
                 if (call.isCanceled()) {
                     callback.onError("abort");
@@ -136,7 +136,7 @@ public class RetroApiAnyCall {
 
         void onError(String result);
 
-        <E>  void onSuccess(E body);
+        <E>  void onSuccess(List<E> body);
     }
 
 

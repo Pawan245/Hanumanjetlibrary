@@ -8,12 +8,14 @@ import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,23 +33,35 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCategory() {
 
-        api service = RetrofitClient.getModelClient("http://pragyatitsolutions.com/").create(api.class);
+        api service = RetrofitClient.getModelClient("https://simplifiedcoding.net/demos/").create(api.class);
 
 
-        Call<testmodel> stringCall = service.placeorder("8", "1");
+        Call<List<Hero>> stringCall = service.getHeroes();
+
+        RetroApiAnyCall.ApiModelCallRetro(stringCall, new RetroApiAnyCall.RetroCallbackApiModel() {
+            @Override
+            public void onError(String result) {
+                Log.i("PPZ",""+result+"");
+            }
+
+            @Override
+            public <E> void onSuccess(List<E> body) {
 
 
-
-        stringCall.enqueue(new Callback<testmodel>() {
+                List<Hero> ty= (List<Hero>) body;
+                Log.i("PP",""+ty.get(0).getName()+"");
+            }
+        });
+     /*   stringCall.enqueue(new Callback<List<Hero>>() {
 
 
 
 
             @Override
-            public void onResponse(Call<testmodel> call, retrofit2.Response<testmodel> response) {
+            public void onResponse(Call<List<Hero>> call, retrofit2.Response<List<Hero>> response) {
 
                 if (response.isSuccessful()) {
-                    /* */
+                    *//* *//*
                     switch (response.code()) {
                         case 404:
 
@@ -60,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         case 200:
                             if (response.isSuccessful()) {
 
-                                Log.i("PP",""+response.toString()+"");
+                                Log.i("PP",""+response.body()+"");
 
                             }
                             break;
@@ -77,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<testmodel> call, Throwable t) {
+            public void onFailure(Call<List<Hero>> call, Throwable t) {
 
                 if (call.isCanceled()) {
                     //callback.onError("abort");
@@ -88,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
     }
 
@@ -110,9 +124,9 @@ public class MainActivity extends AppCompatActivity {
 
         public  interface  api{
 
-            @FormUrlEncoded
-            @POST("pragyatschool/smartschool/SchoolApi/TeacherApi/student_details.php")
-            Call<testmodel> placeorder(@Field("class_id") String id, @Field("sec_id") String secid );
+
+            @GET("marvel")
+            Call<List<Hero>> getHeroes();
 
         }
 

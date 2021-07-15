@@ -1,9 +1,15 @@
 package com.ram.Hanumanjetlibrary;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.ram.hanumanjetpacklibrery.HanumanAdapter;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
 
@@ -20,6 +26,9 @@ import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity {
 
+    HanumanAdapter fg;
+    RecyclerView rvc;
+TextView tt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         int layoutID = R.layout.activity_main;
 
-Log.i("SS",""+layoutID+"");
+       Log.i("SS",""+layoutID+"");
+
+
+       rvc=findViewById(R.id.category_recycler);
+
+
+
 
         getCategory();
 
@@ -49,11 +64,34 @@ Log.i("SS",""+layoutID+"");
 
             @Override
             public <E> void onSuccess(List<E> body) {
-
-
+                int layoutID = R.layout.items;
+                HanumanAdapter.setlayoutid(layoutID);
                 List<Hero> ty= (List<Hero>) body;
 
+                fg = new  HanumanAdapter(MainActivity.this, ty);
 
+                // preferenceManager.putstring(Constant.PRODUCT_COUNT, String.valueOf(cartAdapter.getItemCount()));
+                rvc.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+                fg.setOnHanumanAdapterCallback(new HanumanAdapter.HanumanAdapterCallback() {
+                    @Override
+                    public void MyViewholder(View itemView) {
+                        tt = itemView.findViewById(R.id.txt);
+
+                        tt.setText(":hhfgghfghfgfg");
+                    }
+
+                    @Override
+                    public <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position) {
+                        TextView hh= holder.itemView.findViewById(R.id.txt);
+                        hh.setText("khkhkjkjlkj");
+                    }
+                });
+
+                rvc.setAdapter(fg);
+                rvc.smoothScrollToPosition(0);
+                //cartAdapter.setOnItemClickListener(Cart.this);
+                fg .notifyDataSetChanged();
 
                 Log.i("PP",""+ty.get(4).getName()+"");
             }
@@ -111,6 +149,9 @@ Log.i("SS",""+layoutID+"");
         });*/
 
     }
+
+
+
 
 
        /* RetroApiAnyCall.ApiModelCallRetro(stringCall, new RetroApiAnyCall.RetroCallbackApiModel() {

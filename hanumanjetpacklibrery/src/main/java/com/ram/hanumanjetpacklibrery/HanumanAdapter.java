@@ -23,7 +23,10 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
     }
 
 
+    public void setOnHanumanAdapterCallback( HanumanAdapterCallback callbackt){
 
+        this.callback = callbackt;
+    }
 
 
 
@@ -105,11 +108,11 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
     }
 
     public class MyViewholder extends RecyclerView.ViewHolder {
-        HanumanAdapterCallback cv;
+
 
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
-            MyHolder(cv,itemView);
+            MyHolder(callback,itemView);
 
         }
 

@@ -1,4 +1,6 @@
 package com.ram.hanumanjetpacklibrery;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -65,16 +67,16 @@ public class RetroApiAnyCall {
 
 
 
-    public static  void ApiModelCallRetro(Call<Object> data,final RetroCallbackApiModel callback){
+    public static <E> void ApiModelCallRetro(Call<E> data,final RetroCallbackApiModel callback){
 
 
         /********************************************************************************************/
 
 
-        data.enqueue(new Callback<Object>() {
+        data.enqueue(new Callback<E>() {
 
             @Override
-            public void onResponse(Call<Object> call, retrofit2.Response<Object> response) {
+            public void onResponse(Call<E> call, retrofit2.Response<E> response) {
 
                 if (response.isSuccessful()) {
                     /* */
@@ -107,7 +109,7 @@ public class RetroApiAnyCall {
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void onFailure(Call<E> call, Throwable t) {
 
                 if (call.isCanceled()) {
                     callback.onError("abort");
@@ -128,8 +130,10 @@ public class RetroApiAnyCall {
     }
 
     public interface RetroCallbackApiModel {
-        void onSuccess(Object result);
+
         void onError(String result);
+
+        <E>  void onSuccess(E body);
     }
 
 

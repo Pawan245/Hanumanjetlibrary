@@ -19,7 +19,7 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
     HanumanAdapterCallback callback;
 
-    public void SetHanumanAdapter( HanumanAdapterCallback callbackt){
+    public void setHanumanAdapter( HanumanAdapterCallback callbackt){
 
         this.callback = callbackt;
     }

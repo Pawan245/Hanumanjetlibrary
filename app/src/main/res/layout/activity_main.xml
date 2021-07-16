@@ -34,6 +34,17 @@
 
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rfv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/category_recycler"
+        android:layout_marginTop="58dp"
+        android:backgroundTint="@color/white"
+        android:background="@color/white"
+        android:nestedScrollingEnabled="false"
+        android:padding="4dp" />
 
 
 

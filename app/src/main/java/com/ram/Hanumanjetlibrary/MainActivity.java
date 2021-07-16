@@ -1,6 +1,7 @@
 package com.ram.Hanumanjetlibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,8 +24,8 @@ import retrofit2.http.GET;
 
 public class MainActivity extends AppCompatActivity {
 
-    HanumanAdapter fg;
-    RecyclerView rvc;
+    HanumanAdapter fg,t;
+    RecyclerView rvc,rfv;
     TextView tt;
     List<Hero> ty,yy;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 ty=new ArrayList<>();
         yy=new ArrayList<>();
         rvc = findViewById(R.id.category_recycler);
-
+        rfv= findViewById(R.id.rfv);
 
 
 
@@ -78,7 +79,60 @@ yy= (List<Hero>) body;
                 fg.notifyDataSetChanged();
 
 
-                fg.SetHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
+
+                t= new HanumanAdapter(MainActivity.this, ty);
+                rfv.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+                rfv.setAdapter(fg);
+                rfv.smoothScrollToPosition(0);
+                //cartAdapter.setOnItemClickListener(Cart.this);
+                t.notifyDataSetChanged();
+
+t.setHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
+    @Override
+    public int setlayoutid() {
+        int layoutID = R.layout.items;
+        return layoutID;
+    }
+
+    @Override
+    public void MyViewholder(View itemView) {
+        tt = itemView.findViewById(R.id.txt);
+    }
+
+    @Override
+    public <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position) {
+        List<Hero> df = (List<Hero>) list;
+        TextView hh = holder.itemView.findViewById(R.id.txt);
+        hh.setText("" + df.get(position).getName() + "");
+        hh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //  Toast.makeText(getApplicationContext(),""+hh.getText().toString()+"",Toast.LENGTH_LONG).show();
+
+                EditText ty = findViewById(R.id.txtm);
+
+              //  fg.getFilter().filter(ty.getText().toString());
+            }
+
+        });
+    }
+
+    @Override
+    public <T> List<T> filterresult(CharSequence constraint) {
+        return null;
+    }
+});
+
+
+
+
+
+
+
+
+
+                fg.setHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
                     @Override
                     public int setlayoutid() {
                         int layoutID = R.layout.items;

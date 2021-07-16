@@ -13,10 +13,10 @@ import okhttp3.RequestBody;
 import okio.BufferedSink;
 
 public class HanumaProgressRequestBody extends RequestBody {
-    private File mFile;
+    private final File mFile;
     private String mPath;
-    private UploadCallbacks mListener;
-    private int type;
+    private final UploadCallbacks mListener;
+    private final int type;
     private static final int DEFAULT_BUFFER_SIZE = 2048;
 
     public interface UploadCallbacks {
@@ -80,8 +80,8 @@ public class HanumaProgressRequestBody extends RequestBody {
     }
 
     private class ProgressUpdater implements Runnable {
-        private long mUploaded;
-        private long mTotal;
+        private final long mUploaded;
+        private final long mTotal;
         public ProgressUpdater(long uploaded, long total) {
             mUploaded = uploaded;
             mTotal = total;

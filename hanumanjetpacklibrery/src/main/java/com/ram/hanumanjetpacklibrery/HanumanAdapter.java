@@ -19,7 +19,7 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
     HanumanAdapterCallback callback;
 
-    public void setOnHanumanAdapterCallback( HanumanAdapterCallback callbackt){
+    public void SetHanumanAdapter( HanumanAdapterCallback callbackt){
 
         this.callback = callbackt;
     }
@@ -65,11 +65,13 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
             list=  callback.filterresult(constraint);
             notifyDataSetChanged();
         }
-    };
-
+    }
 
 
     public  interface HanumanAdapterCallback {
+
+        int setlayoutid();
+
         void MyViewholder(View itemView);
        <T> void onBindViewHolder(List<T> list, HanumanAdapter<T>.MyViewholder holder, int position);
 
@@ -93,9 +95,9 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
 
 
 
-    public static void setlayoutid(int id){
+   /* public static void setlayoutid(int id){
     layoutname=id;
-}
+}*/
 
 
 
@@ -121,7 +123,7 @@ public class  HanumanAdapter  <T> extends RecyclerView.Adapter< HanumanAdapter.M
     @Override
     public  HanumanAdapter.MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
+        layoutname=callback.setlayoutid();
 
         View v = LayoutInflater.from(parent.getContext()).inflate(layoutname, parent, false);
         // set the view's size, margins, paddings and layout parameters

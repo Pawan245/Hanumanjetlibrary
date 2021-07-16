@@ -19,19 +19,19 @@ public class HanumanSpinnerAdapter extends ArrayAdapter
 
 
 
-    public static String a[];
-    private int b;
+    public static String[] a;
+    private final int b;
     private String c;
     private boolean d;
 
-    public HanumanSpinnerAdapter(Context context, int i, String as[], int j)
+    public HanumanSpinnerAdapter(Context context, int i, String[] as, int j)
     {
         super(context, i, as);
         d = false;
         b = j;
     }
 
-    public HanumanSpinnerAdapter(Context context, int i, String as[], String as1[], int j, boolean flag)
+    public HanumanSpinnerAdapter(Context context, int i, String[] as, String[] as1, int j, boolean flag)
     {
         this(context, i, as, j);
         d = flag;

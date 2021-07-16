@@ -65,7 +65,7 @@ ty=new ArrayList<>();
             @Override
             public <E> void onSuccess(List<E> body) {
                 int layoutID = R.layout.items;
-                HanumanAdapter.setlayoutid(layoutID);
+              //  HanumanAdapter.setlayoutid(layoutID);
                 ty = (List<Hero>) body;
 yy= (List<Hero>) body;
                 fg = new HanumanAdapter(MainActivity.this, ty);
@@ -78,7 +78,13 @@ yy= (List<Hero>) body;
                 fg.notifyDataSetChanged();
 
 
-                fg.setOnHanumanAdapterCallback(new HanumanAdapter.HanumanAdapterCallback() {
+                fg.SetHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
+                    @Override
+                    public int setlayoutid() {
+                        int layoutID = R.layout.items;
+                        return layoutID;
+                    }
+
                     @Override
                     public void MyViewholder(View itemView) {
                         tt = itemView.findViewById(R.id.txt);

@@ -1,7 +1,8 @@
 package com.ram.hanumanjetpacklibrery;
 
 import java.io.UnsupportedEncodingException;
-        import java.security.MessageDigest;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
         import java.security.NoSuchAlgorithmException;
         import java.util.Arrays;
 
@@ -21,16 +22,13 @@ public class HanumanEnCrYptionAndDeCryption {
 
         MessageDigest sha = null;
         try {
-            key = myKey.getBytes("UTF-8");
+            key = myKey.getBytes(StandardCharsets.UTF_8);
             sha = MessageDigest.getInstance("SHA-1");
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
         }
         catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
@@ -45,7 +43,7 @@ public class HanumanEnCrYptionAndDeCryption {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
-            byte[] cipherText = cipher.doFinal(strToEncrypt.getBytes("UTF-8"));
+            byte[] cipherText = cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8));
             return cipherText;
 
         }
@@ -65,7 +63,7 @@ public class HanumanEnCrYptionAndDeCryption {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
 
-            String decryptString = new String(cipher.doFinal(strToDecrypt), "UTF-8");
+            String decryptString = new String(cipher.doFinal(strToDecrypt), StandardCharsets.UTF_8);
             return decryptString;
         }
         catch (Exception e)

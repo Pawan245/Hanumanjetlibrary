@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 public class HanumanCustomRelativeLayout        extends RelativeLayout
 {
-    private int[] a = new int[4];
+    private final int[] a = new int[4];
 
     public HanumanCustomRelativeLayout(Context paramContext)
     {

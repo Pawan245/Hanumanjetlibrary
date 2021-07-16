@@ -58,7 +58,7 @@ public class HanumanSpinner {
                                                 // TODO Auto-generated method stub
 
 
-                                                callback.onItemClick(c.getA()[position].toString(),adapter.getItemAtPosition(position).toString());
+                                                callback.onItemClick(c.getA()[position],adapter.getItemAtPosition(position).toString());
 
 
 

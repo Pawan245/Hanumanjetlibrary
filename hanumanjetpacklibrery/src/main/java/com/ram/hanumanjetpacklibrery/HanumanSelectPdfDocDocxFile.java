@@ -57,7 +57,7 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
                                         File file = new File(getPath(getApplicationContext(), selectedImage));
                                         File myFile = new File("" + nm + "");
                                         String filename = file.getName();
-                                        String filenameArray[] = filename.split("\\.");
+                                        String[] filenameArray = filename.split("\\.");
                                         String extension = filenameArray[filenameArray.length - 1];
 
 

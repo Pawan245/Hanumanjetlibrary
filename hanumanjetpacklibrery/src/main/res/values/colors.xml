@@ -5,4 +5,6 @@
 
     <color name="txt_color_label">#ff666666</color>
     <color name="grey_666">#ff666666</color>
+    <color name="textcolor">#ffcc7a29</color>
+    <color name="colorAccent">#ff000000</color>
 </resources>

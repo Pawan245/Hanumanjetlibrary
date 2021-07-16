@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20.0sp"
+            android:layout_marginLeft="20.0sp"
+            android:layout_marginTop="10.0sp"
+            android:layout_marginBottom="5.0sp"
+            android:paddingLeft="20.0sp"
+            android:text="Notification:"
+            android:textColor="@color/colorAccent"
+            android:textSize="10.0sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date3"
+            android:layout_width="wrap_content"
+            android:layout_height="20.0sp"
+            android:layout_marginLeft="20.0sp"
+            android:layout_marginTop="10.0sp"
+            android:layout_marginBottom="5.0sp"
+            android:paddingLeft="20.0sp"
+            android:text="21/03/18"
+            android:textColor="@color/colorAccent"
+            android:textSize="15.0sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/SliderimageView"
+        android:layout_width="fill_parent"
+        android:layout_height="70.0sp"
+        android:adjustViewBounds="true"
+        android:paddingLeft="30.0sp"
+        android:paddingRight="30.0sp"
+        android:scaleType="fitXY"
+        android:text="dfighdjghjfkgbvkjfnbgkjfnbgkjngkjnbhjgknbkghjbkgfvnhgkjbngkjnvjknvkjnvknjghknbjkgn"
+        android:textColor="@color/textcolor" />
+</LinearLayout>

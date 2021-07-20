@@ -136,6 +136,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	<pre>#MainActivity.java
  deleteCache(MainActivity.this);
 </pre>
+	Example :https://github.com/Pawan245/deleteCache
   </div></div>
   
   

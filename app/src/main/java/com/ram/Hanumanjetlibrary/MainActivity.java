@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvc,rfv;
     TextView tt;
     List<Hero> ty,yy;
-
+Context f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ ty=new ArrayList<>();
         rvc = findViewById(R.id.category_recycler);
         rfv= findViewById(R.id.rfv);
 
-
+f= MainActivity.this;
 
 
 
@@ -115,10 +115,9 @@ t.setHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
             public void onClick(View view) {
 
 
+                ((HanumanSelectPdfDocDocxFile)f).
 
-                HanumanSelectPdfDocDocxFile gh= new HanumanSelectPdfDocDocxFile();
-
-                gh.SelectHanumanPdfDocDocxFile(MainActivity.this, 2.0, new HanumanSelectPdfDocDocxFile.Fileuploadcallback() {
+                SelectHanumanPdfDocDocxFile(MainActivity.this, 2.0, new HanumanSelectPdfDocDocxFile.Fileuploadcallback() {
                     @Override
                     public void onSelected(String filetype, File file) {
                         Log.i("gffg",""+file.getName()+"");

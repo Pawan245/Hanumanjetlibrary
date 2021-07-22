@@ -1,8 +1,8 @@
 package com.ram.hanumanjetpacklibrery;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentUris;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,9 +26,9 @@ import java.io.File;
 public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
 
-    public  void SelectHanumanPdfDocDocxFile(Context context, double filelimit, final Fileuploadcallback callback) {
+    public  void SelectHanumanPdfDocDocxFile(Context context,double filelimit,final Fileuploadcallback callback) {
 
-ToasterMessage.ShowToast(context,"yert");
+
         try {
 
 
@@ -115,7 +115,8 @@ ToasterMessage.ShowToast(context,"yert");
 
 
                                     } catch (Exception e) {
-                                        //Log.i("wq", "" + e.toString() + "");
+                                        ToasterMessage.ShowToast(context,""+e.toString()+"");
+                                        Log.i("wq", "" + e.toString() + "");
                                     }
                                 }
                             }
@@ -127,15 +128,17 @@ ToasterMessage.ShowToast(context,"yert");
                 someActivityResultLauncher.launch((Intent.createChooser(intent, "ACTION_OPEN_DOCUMENT")));
 
 
+
+
+
             } catch (Exception ex) {
+                ToasterMessage.ShowToast(context,""+ex.toString()+"");
 
-                Log.i("ZZ",""+ex.toString()+"");
-
-
-
+                Log.i("wqd", "" + ex.toString() + "");
             }
         } catch (Exception ex) {
-            Log.i("ZZT",""+ex.toString()+"");
+            ToasterMessage.ShowToast(context,""+ex.toString()+"");
+            Log.i("wqf", "" + ex.toString() + "");
         }
 
 

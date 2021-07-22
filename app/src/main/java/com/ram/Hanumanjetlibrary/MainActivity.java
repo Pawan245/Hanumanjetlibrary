@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ram.hanumanjetpacklibrery.HanumanAdapter;
+import com.ram.hanumanjetpacklibrery.HanumanSelectPdfDocDocxFile;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
+import com.ram.hanumanjetpacklibrery.ToasterMessage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +46,8 @@ ty=new ArrayList<>();
         yy=new ArrayList<>();
         rvc = findViewById(R.id.category_recycler);
         rfv= findViewById(R.id.rfv);
+
+
 
 
 
@@ -82,7 +88,7 @@ yy= (List<Hero>) body;
 
                 t= new HanumanAdapter(MainActivity.this, ty);
                 rfv.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
-                rfv.setAdapter(fg);
+                rfv.setAdapter(t);
                 rfv.smoothScrollToPosition(0);
                 //cartAdapter.setOnItemClickListener(Cart.this);
                 t.notifyDataSetChanged();
@@ -108,6 +114,16 @@ t.setHanumanAdapter(new HanumanAdapter.HanumanAdapterCallback() {
             @Override
             public void onClick(View view) {
 
+
+
+                HanumanSelectPdfDocDocxFile gh= new HanumanSelectPdfDocDocxFile();
+
+                gh.SelectHanumanPdfDocDocxFile(MainActivity.this, 2.0, new HanumanSelectPdfDocDocxFile.Fileuploadcallback() {
+                    @Override
+                    public void onSelected(String filetype, File file) {
+                        Log.i("gffg",""+file.getName()+"");
+                    }
+                });
                 //  Toast.makeText(getApplicationContext(),""+hh.getText().toString()+"",Toast.LENGTH_LONG).show();
 
                 EditText ty = findViewById(R.id.txtm);

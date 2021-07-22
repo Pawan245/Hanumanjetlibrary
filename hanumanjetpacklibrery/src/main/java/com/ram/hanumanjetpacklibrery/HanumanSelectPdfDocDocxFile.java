@@ -1,8 +1,8 @@
 package com.ram.hanumanjetpacklibrery;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentUris;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -25,9 +26,9 @@ import java.io.File;
 public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
 
-    public  void SelectHanumanPdfDocDocxFile(Context context,double filelimit,final Fileuploadcallback callback) {
+    public  void SelectHanumanPdfDocDocxFile(Context context, double filelimit, final Fileuploadcallback callback) {
 
-
+ToasterMessage.ShowToast(context,"yert");
         try {
 
 
@@ -53,8 +54,8 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
                                         Uri selectedImage = data.getData();
 
-                                        String nm = getPath(getApplicationContext(), selectedImage);
-                                        File file = new File(getPath(getApplicationContext(), selectedImage));
+                                        String nm = getPath(context, selectedImage);
+                                        File file = new File(getPath(context, selectedImage));
                                         File myFile = new File("" + nm + "");
                                         String filename = file.getName();
                                         String[] filenameArray = filename.split("\\.");
@@ -128,9 +129,13 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
             } catch (Exception ex) {
 
+                Log.i("ZZ",""+ex.toString()+"");
+
+
+
             }
         } catch (Exception ex) {
-
+            Log.i("ZZT",""+ex.toString()+"");
         }
 
 

@@ -36,7 +36,7 @@
 <p>Add this to your module's <code>build.gradle</code> file (make sure the version matches the JitPack badge above):</p>
 <div class="highlight highlight-source-groovy-gradle position-relative"><pre><span class="pl-en">dependencies</span> {
 	<span class="pl-k">..</span>.
-	implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.Pawan245:Hanumanjetlibrary:6.1.0<span class="pl-pds">'</span></span>
+	implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.Pawan245:Hanumanjetlibrary:7.1.5<span class="pl-pds">'</span></span>
 }</pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="dependencies {
 	...
@@ -114,7 +114,7 @@
     
        
 
-
+Example :https://github.com/Pawan245/GifView-
 
   </div></div>
   
@@ -126,6 +126,7 @@
 	<pre>#MainActivity.java
 ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 </pre>
+	Example :https://github.com/Pawan245/ToasterMessage
   </div></div>
   
   
@@ -135,6 +136,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
 	<pre>#MainActivity.java
  deleteCache(MainActivity.this);
 </pre>
+	Example :https://github.com/Pawan245/deleteCache
   </div></div>
   
   
@@ -188,6 +190,7 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
         });
 
 </pre>
+   Example: https://github.com/Pawan245/VolleyApicallany
   </div></div>
  
  
@@ -234,17 +237,93 @@ ToasterMessage.ShowToast(MainActivity.this,"Thank you!!");
         Call<String> placeorder( @Field("class_id") String id, @Field("sec_id") String secid );
 
     }
+    
+    
+    
+    
+    
 	
 	
 </pre>
 	
+Example: https://github.com/Pawan245/RetroApiAnyCall
+  </div></div>
+ 
+  <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>6.RetroApiAnyCall (Retrofit 2) Any Model Class </h2>
+<p> Place this ApicallAny  anywhere in your App Make Http Network Call</p>
+<div class="highlight highlight-source-java position-relative"><pre>
+	
+	
+	
+	
+	Add  implementation 'com.squareup.retrofit2:retrofit:2.6.1' in build.gradle file
+	for declaration    Call<List<Hero>> stringCall .
+	
+        
+        api service = RetrofitClient.getModelClient("http://xyz.com/").create(api.class);
+
+
+        Call<List<Hero>> stringCall = service.getHeroes();
+
+        RetroApiAnyCall.ApiModelCallRetro(stringCall, new RetroApiAnyCall.RetroCallbackApiModel() {
+            @Override
+            public void onError(String result) {
+                Log.i("PPZ", "" + result + "");
+            }
+
+            @Override
+            public <E> void onSuccess(List<E> body) {
+               
+	       //do stuff here
+            }
+
+            @Override
+            public void onError(String result) {
+               
+	       //do stuff here 
+            }
+        });
+
+
+
+
+	 public interface api {
+
+
+        @GET("marvel")
+        Call<List<Hero>> getHeroes();
+
+    }
+
+#Hero
+    import com.google.gson.annotations.SerializedName;
+
+    public class Hero {
+
+    @SerializedName("name")
+    private String name;
+    private String realname;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    ...................
+    .............................
+    }
+    
+    
+    
+	
+	
+</pre>
+Example: https://github.com/Pawan245/RetroApiAnyCall	
 
   </div></div>
  
  
  
- 
-  <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>6.HanumanSpinner </h2>
+  <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>7.HanumanSpinner </h2>
 <p> Place this HanumanSpinner  anywhere in your App Show Spinner</p>
 <div class="highlight highlight-source-java position-relative">
 
@@ -293,11 +372,29 @@ protected void onCreate(Bundle savedInstanceState) {
 	
 </pre>
 	
+Example: https://github.com/Pawan245/HanumanSpinner
+  </div></div>
+ 
+ <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>8.HanumanAdapter </h2>
+<p> Place this HanumanAdapter  anywhere in your App Show RecyclerView Items With Filter With <T> Class Type</p>
+<div class="highlight highlight-source-java position-relative">
+
+![HanumanAdapter](https://raw.githubusercontent.com/Pawan245/toastlib/master/app/src/main/res/drawable/Screenshot_2recyle.jpg?raw=true)
+
+
+
+Example: https://github.com/Pawan245/HanumanAdapter-
+	
 
   </div></div>
  
  
  
+  <h2><a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>9.HanumanCheckInternet </h2>
+<p> Place this HanumanCheckInternet anywhere in your App for Checking Internet Connection.</p>
+<div class="highlight highlight-source-java position-relative">
+
+  </div></div>
  
     LICENSE (Apache License Version 2.0, January 2004)
 

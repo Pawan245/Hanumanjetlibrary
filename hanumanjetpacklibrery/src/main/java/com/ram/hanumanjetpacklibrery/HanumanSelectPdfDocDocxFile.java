@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -53,8 +54,8 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
                                         Uri selectedImage = data.getData();
 
-                                        String nm = getPath(getApplicationContext(), selectedImage);
-                                        File file = new File(getPath(getApplicationContext(), selectedImage));
+                                        String nm = getPath(context, selectedImage);
+                                        File file = new File(getPath(context, selectedImage));
                                         File myFile = new File("" + nm + "");
                                         String filename = file.getName();
                                         String[] filenameArray = filename.split("\\.");
@@ -114,7 +115,8 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
 
 
                                     } catch (Exception e) {
-                                        //Log.i("wq", "" + e.toString() + "");
+                                        ToasterMessage.ShowToast(context,""+e.toString()+"");
+                                        Log.i("wq", "" + e.toString() + "");
                                     }
                                 }
                             }
@@ -126,11 +128,17 @@ public  class HanumanSelectPdfDocDocxFile extends AppCompatActivity {
                 someActivityResultLauncher.launch((Intent.createChooser(intent, "ACTION_OPEN_DOCUMENT")));
 
 
-            } catch (Exception ex) {
 
+
+
+            } catch (Exception ex) {
+                ToasterMessage.ShowToast(context,""+ex.toString()+"");
+
+                Log.i("wqd", "" + ex.toString() + "");
             }
         } catch (Exception ex) {
-
+            ToasterMessage.ShowToast(context,""+ex.toString()+"");
+            Log.i("wqf", "" + ex.toString() + "");
         }
 
 

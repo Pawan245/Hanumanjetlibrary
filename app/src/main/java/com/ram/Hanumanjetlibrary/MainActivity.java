@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ram.hanumanjetpacklibrery.HanumanAdapter;
+import com.ram.hanumanjetpacklibrery.HanumanCheckInternet;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
 
@@ -46,6 +47,17 @@ ty=new ArrayList<>();
 
 
         getCategory();
+
+
+       if(HanumanCheckInternet.isConnected(MainActivity.this))
+        {
+            //online
+        }
+       else {
+           //offline
+       }
+
+
 
     }
 

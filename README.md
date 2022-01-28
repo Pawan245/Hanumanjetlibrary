@@ -36,7 +36,7 @@
 <p>Add this to your module's <code>build.gradle</code> file (make sure the version matches the JitPack badge above):</p>
 <div class="highlight highlight-source-groovy-gradle position-relative"><pre><span class="pl-en">dependencies</span> {
 	<span class="pl-k">..</span>.
-	implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.Pawan245:Hanumanjetlibrary:7.1.6<span class="pl-pds">'</span></span>
+	implementation <span class="pl-s"><span class="pl-pds">'</span>com.github.Pawan245:Hanumanjetlibrary:7.1.7<span class="pl-pds">'</span></span>
 }</pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="dependencies {
 	...

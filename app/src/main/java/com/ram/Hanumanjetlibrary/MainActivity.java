@@ -16,6 +16,7 @@ import com.ram.hanumanjetpacklibrery.HanumanAdapter;
 import com.ram.hanumanjetpacklibrery.HanumanCheckInternet;
 import com.ram.hanumanjetpacklibrery.RetroApiAnyCall;
 import com.ram.hanumanjetpacklibrery.RetrofitClient;
+import com.ram.hanumanjetpacklibrery.StartAnyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,25 +30,17 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvc,rfv;
     TextView tt;
     List<Hero> ty,yy;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         int layoutID = R.layout.activity_main;
-
         Log.i("SS", "" + layoutID + "");
-
-ty=new ArrayList<>();
+        ty=new ArrayList<>();
         yy=new ArrayList<>();
         rvc = findViewById(R.id.category_recycler);
         rfv= findViewById(R.id.rfv);
-
-
-
         getCategory();
-
 
        if(HanumanCheckInternet.isConnected(MainActivity.this))
         {
@@ -57,7 +50,7 @@ ty=new ArrayList<>();
            //offline
        }
 
-
+        
 
     }
 

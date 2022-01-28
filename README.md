@@ -40,7 +40,7 @@
 }</pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="dependencies {
 	...
-	implementation 'com.github.Pawan245:Hanumanjetlibrary:7.1.6'
+	implementation 'com.github.Pawan245:Hanumanjetlibrary:7.1.7'
 }
 " tabindex="0" role="button">
       <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="octicon octicon-clippy js-clipboard-clippy-icon m-2">
